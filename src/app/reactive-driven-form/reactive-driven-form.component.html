@@ -1,0 +1,58 @@
+
+<div class="container"  style="width: 400px; margin: 0 auto; ">
+    <h2 style="text-align: center;font-family: ui-monospace; font-family: ui-monospace;">RDF Form Validation </h2>
+ 
+    <form [formGroup]="loginForm">
+         <!-- Name -->
+         <div class="form-group">
+            <label for=""> Name</label>
+            <input type="text" placeholder="enter the name" class="form-control" name="ftname" formControlName="ftname" autocomplete="off">
+            <span class="text text-danger" *ngIf="loginForm.get('ftname')?.invalid && loginForm.get('ftname')?.touched">minimum 2 char</span>
+            <span class="text text-success" *ngIf="loginForm.get('ftname')?.valid ">success</span>
+        </div>
+
+            <!-- email -->
+        <div class="form-group">
+            <label for="">Email:</label>
+            <input type="email" class="form-control" placeholder="Enter email" name="email" formControlName="email" autocomplete="off">
+            <span class="text text-danger" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">email is required</span>
+            <span class="text text-success" *ngIf="loginForm.get('email')?.valid ">success</span>
+
+        </div>
+
+        <!-- password -->
+        <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" placeholder="Enter password" name="pswd" formControlName="pswd">
+            <span class="text text-danger" *ngIf="loginForm.get('pswd')?.invalid && loginForm.get('pswd')?.touched">minimum 6 char</span>
+            <span class="text text-success" *ngIf="loginForm.get('pswd')?.valid ">success</span>
+        </div>
+
+        <!-- phone number -->
+        <div class="form-group">
+            <label for="">Phone:</label>
+            <input type="phone" class="form-control" placeholder="Enter password" name="phone" formControlName="phone">
+            <span class="text text-danger" *ngIf="loginForm.get('phone')?.invalid && loginForm.get('phone')?.touched">10 numbers</span>
+            <span class="text text-success" *ngIf="loginForm.get('phone')?.valid ">success</span>
+        </div>
+
+        <!-- city -->
+        <div class="form-group">
+            <label for="">city:</label>
+            <input type="city" class="form-control" placeholder="Enter password" name="city" formControlName="city">
+            <span class="text text-danger" *ngIf="loginForm.get('city')?.invalid && loginForm.get('city')?.touched">invalid city</span>
+            <span class="text text-success" *ngIf="loginForm.get('city')?.valid ">success</span>
+        </div>
+
+        <!-- pin code -->
+        <div class="form-group">
+            <label for="">pin code:</label>
+            <input type="pincode" class="form-control" placeholder="Enter password" name="pin" formControlName="pin">
+            <span class="text text-danger" *ngIf="loginForm.get('pin')?.invalid && loginForm.get('pin')?.touched">6 numbers</span>
+            <span class="text text-success" *ngIf="loginForm.get('pin')?.valid ">success</span>
+        </div>
+       
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Submit</button>
+    </form>
+
+</div>

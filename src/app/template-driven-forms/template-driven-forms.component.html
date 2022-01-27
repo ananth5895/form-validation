@@ -1,0 +1,106 @@
+<section>
+    <div class="container">
+        <h2 style="text-align: center;font-family: ui-monospace; font-family: ui-monospace;">TDF Form Validation
+        </h2>
+        <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)" style="width: 400px; margin: 0 auto; ">
+
+            <div class="form-group">
+                <label for="">First Name :</label>
+                <span class="text text-danger" *ngIf="ftname.untouched && ftname.invalid">* </span>
+
+                <input type="text" placeholder="enter name" required ngModel #ftname="ngModel" minlength="4"
+                    name="ftname" class="form-control on" autocomplete="off">
+                <span class="text text-danger" *ngIf="ftname.touched && ftname.invalid"> name is required</span>
+                <span class="text text-sucess" *ngIf="ftname.valid"> success...!</span>
+                <span class="text text-danger" *ngIf="ftname.errors?.['minlength']"> minimum 3 letters</span>
+            </div>
+
+            <div class="form-group">
+                <label for="">Lest Name :</label>
+                <span class="text text-danger" *ngIf="ltname.untouched && ltname.invalid">* </span>
+
+                <input type="text" placeholder="enter name" required ngModel #ltname="ngModel" minlength="4"
+                    name="ltname" class="form-control" autocomplete="off">
+                <span class="text text-danger" *ngIf="ltname.touched && ltname.invalid"> name is required</span>
+                <span class="text text-sucess" *ngIf="ltname.valid"> success...!</span>
+                <span class="text text-danger" *ngIf="ltname.errors?.['minlength']"> minimum 3 letters</span>
+            </div>
+
+            <div class="form-group">
+                <!-- email -->
+                <label for="email">Email:</label>
+                <span class="text text-danger" *ngIf="email.untouched && email.invalid">* </span>
+
+
+                <input type="email" required ngModel #email="ngModel" class="form-control" placeholder="Enter email"
+                    name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                <span class="text text-danger" *ngIf="email.touched && email.invalid">Email id Requried </span>
+                <span class="text text-sucess" *ngIf="email.valid"> success...!</span>
+                <span class="text text-danger" *ngIf="email.errors?.['pattern']">pls enter valid email...!</span>
+            </div>
+            <!-- password -->
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <span class="text text-danger" *ngIf="pswd.untouched && pswd.invalid">* </span>
+
+                <input type="password" ngModel #pswd="ngModel" required class="form-control" minlength="6"
+                    placeholder="Enter password" name="pswd">
+                <span class="text text-danger" *ngIf="pswd.touched && pswd.invalid"> password is required</span>
+                <span class="text text-sucess" *ngIf="pswd.untouched && pswd.valid"> success...!</span>
+                <span class="text text-danger" *ngIf="pswd.errors?.['minlength']"> password must have minimum 6
+                    characters</span>
+            </div>
+
+            <div class="form-group">
+
+                <label for="">Phone : </label>
+                <span class="text text-danger" *ngIf="pnum.untouched && pnum.invalid">* </span>
+
+                <input type="text" required ngModel #pnum="ngModel" class="form-control" minlength="10"
+                    placeholder="Entern phone number" name="pnum">
+                <span class="text text-danger" *ngIf="pnum.touched && pnum.invalid"> Email id Requried </span>
+                <span class="text text-danger" *ngIf="pnum.errors?.['minlength']">more then 10 numbers</span>
+                <span class="text text-success" *ngIf="pnum.valid"> success...!</span>
+            </div>
+
+            <div class="form-group">
+                <label for="">City :</label>
+                <!-- <span class="text text-danger" *ngIf="ftname.untouched && ftname.invalid">* </span> -->
+
+                <input type="text" placeholder="enter your city" required ngModel #city="ngModel" name="city"
+                    class="form-control" autocomplete="off">
+                <span class="text text-danger" *ngIf="city.touched && city.invalid"> city is required</span>
+                <span class="text text-sucess" *ngIf="city.untouched && city.valid"> success...!</span>
+            </div>
+
+            <div class="form-group">
+
+                <label for="">Pin code : </label>
+                <span class="text text-danger" *ngIf="pincode.untouched && pnum.invalid">* </span>
+
+                <input type="text" required ngModel #pincode="ngModel" class="form-control" minlength="6"
+                    placeholder="Entern phone number" name="pincode" autocomplete="off">
+                <span class="text text-danger" *ngIf="pincode.touched && pincode.invalid"> Email id Requried </span>
+                <span class="text text-danger" *ngIf="pincode.errors?.['minlength']">6 code</span>
+                <span class="text text-success" *ngIf="pincode.valid"> success...!</span>
+
+            </div>
+
+            <!-- <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" style="margin-left: 100px;" type="checkbox" id="terms" ngModel
+                        name="terms" #terms="ngModel" value="" required autocomplete="off">
+                    <label class="agree form-check-label" for="terms">
+                        Agree to terms and conditions
+                    </label>
+                    <div *ngIf="terms.touched && terms.invalid" class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div> -->
+
+            <button type="submit" class="btn btn-primary BTN-1" style="margin-top: 40px;">Submit</button>
+        </form>
+
+    </div>
+</section>
